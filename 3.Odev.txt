@@ -1,0 +1,240 @@
+// Soru 1 - Foreach Döngüsü ile Liste Elemanlarını Yazdırma
+
+
+
+using System;
+
+using System.Collections;
+
+
+class Program
+{
+    static void Main()
+    {
+        ArrayList numbers = new ArrayList() { 5, 10, 15, 20, 25 };
+        int sum = 0;
+
+        foreach (int number in numbers)
+        {
+            Console.WriteLine(number);
+            sum += number;
+        }
+
+        Console.WriteLine("Total Sum: " + sum);
+    }
+}
+
+
+
+
+// Soru 2 - Hazır Metod Kullanımı 
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a sentence: ");
+        string sentence = Console.ReadLine();
+
+        string[] words = sentence.Split(' ');
+        int wordCount = words.Length;
+
+        Console.WriteLine("Word count: " + wordCount);
+    }
+}
+
+
+
+// Soru 3 - ArrayList ile Alfabetik Sıralama 
+
+
+
+using System;
+
+using System.Collections;
+
+class Program
+{
+    static void Main()
+    {
+        ArrayList names = new ArrayList();
+
+        for (int i = 0; i < 5; i++)
+        {
+            Console.Write("Enter a name: ");
+            names.Add(Console.ReadLine());
+        }
+
+        names.Sort();
+
+        Console.WriteLine("Sorted Names:");
+        foreach (string name in names)
+        {
+            Console.WriteLine(name);
+        }
+    }
+}
+
+
+
+
+// Soru 4 - For Döngüsü ile Fibonacci Serisi 
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter the number of Fibonacci terms: ");
+        int n = int.Parse(Console.ReadLine());
+
+        int a = 0, b = 1, next;
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write(a + " ");
+            next = a + b;
+            a = b;
+            b = next;
+        }
+    }
+}
+
+
+
+
+// Soru 5 - While Döngüsü ile Tahmin Oyunu 
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Random random = new Random();
+        int target = random.Next(1, 101);
+        int guess = 0;
+
+        while (guess != target)
+        {
+            Console.Write("Guess the number: ");
+            guess = int.Parse(Console.ReadLine());
+
+            if (guess < target)
+                Console.WriteLine("Too low!");
+            else if (guess > target)
+                Console.WriteLine("Too high!");
+        }
+
+        Console.WriteLine("Congratulations! You guessed the correct number.");
+    }
+}
+
+
+
+// Soru 6 - Do While Döngüsü ile Basit Hesap Makinesi 
+
+
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string operation;
+        do
+        {
+            Console.Write("Enter operation (+, -, *, /) or 'exit' to quit: ");
+            operation = Console.ReadLine();
+
+            if (operation == "exit")
+                break;
+
+            Console.Write("Enter the first number: ");
+            double num1 = double.Parse(Console.ReadLine());
+
+            Console.Write("Enter the second number: ");
+            double num2 = double.Parse(Console.ReadLine());
+
+            switch (operation)
+            {
+                case "+":
+                    Console.WriteLine("Result: " + (num1 + num2));
+                    break;
+                case "-":
+                    Console.WriteLine("Result: " + (num1 - num2));
+                    break;
+                case "*":
+                    Console.WriteLine("Result: " + (num1 * num2));
+                    break;
+                case "/":
+                    if (num2 != 0)
+                        Console.WriteLine("Result: " + (num1 / num2));
+                    else
+                        Console.WriteLine("Error: Cannot divide by zero.");
+                    break;
+                default:
+                    Console.WriteLine("Invalid operation.");
+                    break;
+            }
+
+        } while (true);
+    }
+}
+
+
+
+// Soru 7 - For ve While Döngüsü ile Sayı Toplama Oyunu 
+
+
+
+using System;
+
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<int> numbers = new List<int>();
+        int sum = 0;
+        int number;
+
+        while (true)
+        {
+            Console.Write("Enter a positive number (0 to end): ");
+            number = int.Parse(Console.ReadLine());
+
+            if (number == 0)
+                break;
+
+            if (number > 0)
+            {
+                numbers.Add(number);
+                sum += number;
+            }
+        }
+
+        Console.WriteLine("Total Sum: " + sum);
+
+        Console.WriteLine("Entered numbers:");
+        for (int i = 0; i < numbers.Count; i++)
+        {
+            Console.WriteLine(numbers[i]);
+        }
+    }
+}
+
+
+
+
+ 
